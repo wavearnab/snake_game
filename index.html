@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Snake Game</title>
+
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;1,700&display=swap" rel="stylesheet" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer"
+      />
+      <script src="./script.js" type="text/javascript" defer></script>
+      <link rel="stylesheet" href="./style.css" />
+   </head>
+   <body>
+      <svg id="game__background" xmlns="http://www.w3.org/2000/svg" width="589.963" height="801.057" viewBox="0 0 589.963 801.057">
+         <g id="Group_14" data-name="Group 14" transform="translate(-1281.037 -604.412)" opacity="0.27">
+            <g id="Group_16" data-name="Group 16" transform="translate(1281.037 604.412)">
+               <g id="Group_1" data-name="Group 1" transform="translate(108.298)">
+                  <path
+                     id="Path_134"
+                     data-name="Path 134"
+                     d="M349.518,1122.948c1.511,2.153,3.082,4.306,4.692,6.426H489.78c-1.028-1.832-2.219-3.985-3.6-6.426-22.394-40.417-88.68-161.263-150.209-286.539-66.1-134.628-126.787-274.358-121.676-324.934C212.711,522.877,166.953,870.6,349.518,1122.948Z"
+                     transform="translate(-208.07 -330.77)"
+                     fill="#00b79e"
+                  />
+                  <path
+                     id="Path_133"
+                     data-name="Path 133"
+                     d="M255.5,915.1a737.722,737.722,0,0,0,34.466,203.931c.466,1.532.983,3.042,1.486,4.574H420.06c-.135-1.374-.275-2.906-.41-4.574-8.574-98.582,40.414-691.427,99.526-794.033C514,333.323,245.527,601.864,255.5,915.1Z"
+                     transform="translate(-127.721 -325)"
+                     fill="#047e6e"
+                  />
+               </g>
+               <g id="Group_9" data-name="Group 9" transform="translate(306.805 161.067)">
+                  <g id="Group_1-2" data-name="Group 1" transform="translate(0)">
+                     <g id="Group_3" data-name="Group 3">
+                        <path
+                           id="Path_134-2"
+                           data-name="Path 134"
+                           d="M287.761,858.892c-.859,1.223-1.751,2.447-2.666,3.652H208.07c.584-1.041,1.26-2.265,2.045-3.652,12.724-22.963,50.385-91.624,85.343-162.8,37.554-76.49,72.036-155.88,69.132-184.615C365.49,517.954,391.488,715.515,287.761,858.892Z"
+                           transform="translate(-84.969 -225.005)"
+                           fill="#00b79e"
+                        />
+                        <path
+                           id="Path_133-2"
+                           data-name="Path 133"
+                           d="M465.724,796.087a588.925,588.925,0,0,1-27.515,162.8c-.372,1.223-.785,2.428-1.186,3.651H334.353c.107-1.1.219-2.32.327-3.651,6.845-78.7-32.263-551.976-79.453-633.888C259.361,331.644,473.685,546.025,465.724,796.087Z"
+                           transform="translate(-255.227 -325)"
+                           fill="#48bfaf"
+                        />
+                     </g>
+                  </g>
+               </g>
+               <g id="Group_7" data-name="Group 7" transform="translate(0 227.904)">
+                  <path
+                     id="Path_133-3"
+                     data-name="Path 133"
+                     d="M255.408,748.511a567.525,567.525,0,0,0,22.926,146.359c.309,1.1.653,2.183.988,3.282h85.546c-.089-.986-.182-2.086-.272-3.282-5.7-70.752,26.882-496.231,66.2-569.871C427.351,330.973,248.775,523.7,255.408,748.511Z"
+                     transform="translate(-207.414 -325)"
+                     fill="#bca403"
+                  />
+                  <path
+                     id="Path_134-3"
+                     data-name="Path 134"
+                     d="M275.032,823.805c.716,1.1,1.459,2.2,2.221,3.283h64.179c-.487-.936-1.05-2.035-1.7-3.283-10.6-20.644-41.981-82.369-71.109-146.359-31.29-68.766-60.021-140.137-57.6-165.971C210.267,517.3,188.605,694.909,275.032,823.805Z"
+                     transform="translate(-208.07 -253.936)"
+                     fill="#b74f00"
+                  />
+               </g>
+            </g>
+         </g>
+      </svg>
+
+      <div class="wraper">
+         <div class="score__container">
+            <div class="score__box">
+               <h2>Score</h2>
+               <h1 id="score">0</h1>
+            </div>
+         </div>
+         <div class="main">
+            <div class="game__start">
+               <div class="game__initial-btns">
+                  <button id="start-btn" class="game__start-btn">Start</button>
+                  <button id="pause-btn" class="game__pause-btn">Pause</button>
+               </div>
+            </div>
+            <div class="game__container">
+               <canvas id="myCanvas" height="300px" width="300px"></canvas>
+               <svg class="game__grass-left" xmlns="http://www.w3.org/2000/svg" width="83.572" height="134.31" viewBox="0 0 83.572 134.31">
+                  <g id="Group_15" data-name="Group 15" transform="translate(-444 -725.691)">
+                     <g id="Group_2" data-name="Group 2" transform="translate(-177 559)">
+                        <g id="Group_1" data-name="Group 1">
+                           <g id="Group_3" data-name="Group 3" transform="translate(251 -388.309)">
+                              <path
+                                 id="Path_134"
+                                 data-name="Path 134"
+                                 d="M224.858,584.665c-.181.258-.369.515-.562.769H208.07c.123-.219.266-.477.431-.769,2.68-4.838,10.615-19.3,17.979-34.3,7.911-16.114,15.176-32.839,14.564-38.893C241.233,512.84,246.71,554.46,224.858,584.665Z"
+                                 transform="translate(191.864 103.876)"
+                                 fill="#00b79e"
+                              />
+                              <path
+                                 id="Path_133"
+                                 data-name="Path 133"
+                                 d="M299.573,424.244a124.07,124.07,0,0,1-5.8,34.3c-.078.258-.165.512-.25.769H271.9c.023-.231.046-.489.069-.769,1.442-16.58-6.8-116.285-16.738-133.541C256.1,326.4,301.25,371.563,299.573,424.244Z"
+                                 transform="translate(118.773 230)"
+                                 fill="#047e6e"
+                              />
+                           </g>
+                        </g>
+                     </g>
+                     <g id="Group_10" data-name="Group 10" transform="translate(498 792.691)">
+                        <g id="Group_1-2" data-name="Group 1" transform="translate(0)">
+                           <g id="Group_3-2" data-name="Group 3" transform="translate(0)">
+                              <path
+                                 id="Path_134-2"
+                                 data-name="Path 134"
+                                 d="M216.463,547.758c.09.128.183.255.278.381h8.044c-.061-.109-.132-.237-.214-.381-1.329-2.4-5.262-9.569-8.913-17-3.922-7.989-7.523-16.28-7.22-19.281C208.345,512.152,205.63,532.784,216.463,547.758Z"
+                                 transform="translate(-208.07 -481.557)"
+                                 fill="#00b79e"
+                              />
+                              <path
+                                 id="Path_133-2"
+                                 data-name="Path 133"
+                                 d="M255.25,374.2a61.505,61.505,0,0,0,2.874,17c.039.128.082.254.124.381H268.97c-.011-.115-.023-.242-.034-.381-.715-8.219,3.369-57.647,8.3-66.2C276.8,325.694,254.419,348.083,255.25,374.2Z"
+                                 transform="translate(-247.661 -325)"
+                                 fill="#047e6e"
+                              />
+                           </g>
+                        </g>
+                     </g>
+                     <g id="Group_4" data-name="Group 4" transform="translate(444 783.691)">
+                        <g id="Group_1-3" data-name="Group 1" transform="translate(0)">
+                           <g id="Group_3-3" data-name="Group 3">
+                              <path
+                                 id="Path_134-3"
+                                 data-name="Path 134"
+                                 d="M217.689,553.059c.1.146.21.293.319.437h9.22c-.07-.125-.151-.271-.245-.437-1.523-2.749-6.031-10.967-10.215-19.487-4.495-9.155-8.622-18.658-8.275-22.1C208.385,512.25,205.273,535.9,217.689,553.059Z"
+                                 transform="translate(-208.07 -477.186)"
+                                 fill="#00b79e"
+                              />
+                              <path
+                                 id="Path_133-3"
+                                 data-name="Path 133"
+                                 d="M255.253,381.387a70.492,70.492,0,0,0,3.293,19.486c.044.146.094.291.142.437h12.289c-.013-.131-.026-.278-.039-.437-.819-9.42,3.862-66.069,9.51-75.873C279.954,325.8,254.3,351.456,255.253,381.387Z"
+                                 transform="translate(-246.556 -325)"
+                                 fill="#48bfaf"
+                              />
+                           </g>
+                        </g>
+                     </g>
+                     <g id="Group_11" data-name="Group 11" transform="translate(510.198 821.444)">
+                        <g id="Group_1-4" data-name="Group 1" transform="translate(0)">
+                           <g id="Group_3-4" data-name="Group 3">
+                              <path
+                                 id="Path_134-4"
+                                 data-name="Path 134"
+                                 d="M212.8,532.09c-.051.073-.1.145-.158.217H208.07l.121-.217c.755-1.363,2.99-5.437,5.064-9.66,2.228-4.539,4.274-9.25,4.1-10.955C217.411,511.859,218.953,523.582,212.8,532.09Z"
+                                 transform="translate(-200.765 -494.477)"
+                                 fill="#00b79e"
+                              />
+                              <path
+                                 id="Path_133-4"
+                                 data-name="Path 133"
+                                 d="M267.718,352.953a34.947,34.947,0,0,1-1.633,9.66c-.022.073-.047.144-.07.217h-6.092c.006-.065.013-.138.019-.217.406-4.67-1.914-32.753-4.715-37.614C255.473,325.394,268.19,338.115,267.718,352.953Z"
+                                 transform="translate(-255.227 -325)"
+                                 fill="#48bfaf"
+                              />
+                           </g>
+                        </g>
+                     </g>
+                     <g id="Group_12" data-name="Group 12" transform="translate(486.76 805.691)">
+                        <g id="Group_1-5" data-name="Group 1" transform="translate(0)">
+                           <g id="Group_3-5" data-name="Group 3">
+                              <path
+                                 id="Path_134-5"
+                                 data-name="Path 134"
+                                 d="M214.315,540.85c-.067.1-.137.207-.209.309H208.07c.046-.088.1-.191.16-.309,1-1.942,3.948-7.747,6.688-13.765,2.943-6.468,5.645-13.18,5.418-15.61C220.406,512.023,222.443,528.727,214.315,540.85Z"
+                                 transform="translate(-198.423 -487.253)"
+                                 fill="#b74f00"
+                              />
+                              <path
+                                 id="Path_133-5"
+                                 data-name="Path 133"
+                                 d="M271.723,364.832a53.377,53.377,0,0,1-2.156,13.765c-.029.1-.061.205-.093.309h-8.046c.008-.093.017-.2.026-.309.536-6.654-2.528-46.672-6.226-53.6C255.551,325.562,272.347,343.688,271.723,364.832Z"
+                                 transform="translate(-255.227 -325)"
+                                 fill="#bca403"
+                              />
+                           </g>
+                        </g>
+                     </g>
+                  </g>
+               </svg>
+               <svg class="game__grass-right" xmlns="http://www.w3.org/2000/svg" width="83.964" height="114.007" viewBox="0 0 83.964 114.007">
+                  <g id="Group_13" data-name="Group 13" transform="translate(-1412.037 -782.412)">
+                     <g id="Group_1" data-name="Group 1" transform="translate(1427.45 782.412)">
+                        <path
+                           id="Path_134"
+                           data-name="Path 134"
+                           d="M228.2,598.5c.215.306.439.613.668.915h19.294c-.146-.261-.316-.567-.512-.915-3.187-5.752-12.621-22.951-21.378-40.78-9.407-19.16-18.044-39.047-17.317-46.245C208.73,513.1,202.218,562.585,228.2,598.5Z"
+                           transform="translate(-208.07 -485.757)"
+                           fill="#00b79e"
+                        />
+                        <path
+                           id="Path_133"
+                           data-name="Path 133"
+                           d="M255.266,408.983a104.993,104.993,0,0,0,4.905,29.024c.066.218.14.433.211.651h18.3c-.019-.2-.039-.414-.058-.651-1.22-14.03,5.752-98.4,14.165-113.007C292.055,326.185,253.847,364.4,255.266,408.983Z"
+                           transform="translate(-237.08 -325)"
+                           fill="#047e6e"
+                        />
+                     </g>
+                     <g id="Group_9" data-name="Group 9" transform="translate(1455.702 805.335)">
+                        <g id="Group_1-2" data-name="Group 1" transform="translate(0)">
+                           <g id="Group_3" data-name="Group 3">
+                              <path
+                                 id="Path_134-2"
+                                 data-name="Path 134"
+                                 d="M219.411,560.919c-.122.174-.249.348-.379.52H208.07c.083-.148.179-.322.291-.52,1.811-3.268,7.171-13.04,12.146-23.17,5.345-10.886,10.252-22.185,9.839-26.275C230.474,512.4,234.174,540.514,219.411,560.919Z"
+                                 transform="translate(-190.55 -470.705)"
+                                 fill="#00b79e"
+                              />
+                              <path
+                                 id="Path_133-2"
+                                 data-name="Path 133"
+                                 d="M285.185,392.045a83.816,83.816,0,0,1-3.916,23.17c-.053.174-.112.346-.169.52H266.489c.015-.156.031-.33.047-.52.974-11.2-4.592-78.557-11.308-90.215C255.816,325.946,286.318,356.456,285.185,392.045Z"
+                                 transform="translate(-255.227 -325)"
+                                 fill="#48bfaf"
+                              />
+                           </g>
+                        </g>
+                     </g>
+                     <g id="Group_7" data-name="Group 7" transform="translate(1412.037 814.847)">
+                        <path
+                           id="Path_133-3"
+                           data-name="Path 133"
+                           d="M255.253,385.274a80.771,80.771,0,0,0,3.263,20.83c.044.156.093.311.141.467h12.175c-.013-.14-.026-.3-.039-.467-.812-10.069,3.826-70.624,9.422-81.1C279.724,325.85,254.309,353.279,255.253,385.274Z"
+                           transform="translate(-248.422 -325)"
+                           fill="#bca403"
+                        />
+                        <path
+                           id="Path_134-3"
+                           data-name="Path 134"
+                           d="M217.6,555.926c.1.157.208.313.316.467h9.134c-.069-.133-.149-.29-.243-.467-1.509-2.938-5.975-11.723-10.12-20.83-4.453-9.787-8.542-19.944-8.2-23.621C208.382,512.3,205.3,537.581,217.6,555.926Z"
+                           transform="translate(-208.07 -474.822)"
+                           fill="#b74f00"
+                        />
+                     </g>
+                  </g>
+               </svg>
+            </div>
+            <div class="game__controls">
+               <div class="control__btns">
+                  <div class="control__top">
+                     <button id="top-control-btn" class="control__top-btn"><i class="fas fa-2x fa-chevron-up"></i></button>
+                  </div>
+                  <div class="control__mdl">
+                     <button id="left-control-btn" class="control__left-btn"><i class="fas fa-2x fa-chevron-left"></i></button>
+                     <button id="right-control-btn" class="control__right-btn"><i class="fas fa-2x fa-chevron-right"></i></button>
+                  </div>
+                  <div class="control__down">
+                     <button id="down-control-btn" class="control__down-btn"><i class="fas fa-2x fa-chevron-down"></i></button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

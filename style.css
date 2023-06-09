@@ -1,0 +1,321 @@
+/********************** Starter  Code *************************/
+*,
+::before,
+::after {
+   margin: 0;
+   padding: 0;
+   box-sizing: inherit;
+}
+
+html {
+   scroll-behavior: smooth;
+   box-sizing: border-box;
+   font-size: 62.5%; /* 10px/16px = 62.5% */
+}
+
+body {
+   min-height: 100vh;
+   font-family: "Roboto", sans-serif;
+   font-weight: 400;
+}
+
+.wraper {
+   height: 100vh;
+   width: 100%;
+}
+
+#game__background {
+   position: absolute;
+   left: -8rem;
+   bottom: 0;
+   height: 60rem;
+   opacity: 0.7;
+}
+
+/********************** Score Section *************************/
+.score__container {
+   height: 15vh;
+   width: 100%;
+   display: grid;
+   align-content: center;
+}
+
+.score__box {
+   width: 16rem;
+   margin: 0 auto;
+   text-align: center;
+   border: 1px solid;
+}
+
+.score__box h2 {
+   font-size: 2rem;
+   font-weight: 400;
+}
+
+.score__box h1 {
+   font-size: 3rem;
+   font-weight: 700;
+   color: white;
+   background-color: #005288;
+}
+
+/********************** Bottam Section *************************/
+.main {
+   position: relative;
+   height: 85vh;
+   width: 90%;
+   margin: 0 auto;
+   max-width: 1252px;
+   display: flex;
+   justify-content: space-between;
+}
+
+/********************** Bottam Left Section *************************/
+.game__start {
+   width: 30rem;
+   z-index: 100;
+}
+
+.game__initial-btns {
+   width: 20rem;
+   height: 25rem;
+   margin: 0 auto;
+   padding: 6rem 0;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+}
+.game__start-btn,
+.game__pause-btn {
+   display: block;
+   height: 4rem;
+   width: 20rem;
+   margin: 0 auto;
+   border-radius: 1rem;
+   border: none;
+   color: white;
+   font-size: 1.7rem;
+   font-weight: 400;
+   cursor: pointer;
+}
+
+.game__start-btn {
+   background-color: #3eb595;
+}
+
+.game__pause-btn {
+   background-color: #d90b1c;
+}
+
+.game__start-btn:active {
+   background-color: #008d67;
+}
+.game__pause-btn:active {
+   background-color: #94030f;
+}
+
+.game__start-btn:disabled,
+.game__pause-btn:disabled,
+.control__top-btn:disabled,
+.control__left-btn:disabled,
+.control__right-btn:disabled,
+.control__down-btn:disabled{
+   background-color: #525252;
+   cursor: not-allowed;
+   color: #929292;
+}
+
+/********************** Game Control Section *************************/
+.game__controls {
+   width: 30rem;
+   z-index: 100;
+}
+
+.control__btns {
+   width: 25rem;
+   height: 25rem;
+   margin: 0 auto;
+   padding: 5rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.control__top-btn,
+.control__left-btn,
+.control__right-btn,
+.control__down-btn {
+   width: 5rem;
+   height: 5rem;
+   background-color: #0076c5;
+   color: white;
+   border: none;
+   cursor: pointer;
+}
+
+.control__top-btn:active,
+.control__left-btn:active,
+.control__right-btn:active,
+.control__down-btn:active {
+   background-color: #005e9c;
+}
+
+.control__mdl {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+}
+
+/********************** Bottam Right Section *************************/
+
+/********************** Game Display Section *************************/
+.game__container {
+   position: absolute;
+   left: 50%;
+   top: 11rem;
+   transform: translate(-50%) scale(1.6);
+   z-index: 10;
+}
+
+#myCanvas {
+   /* border: 1px solid; */
+   border: 25px solid transparent;
+
+   -webkit-border-image: url(img/border.png) 100 round;
+   border-image: url(img/border.png) 100 round;
+}
+
+.game__grass-left {
+   position: absolute;
+   left: -8%;
+   bottom: 0;
+   height: 9rem;
+}
+
+.game__grass-right {
+   position: absolute;
+   right: -8%;
+   bottom: 0;
+   height: 8rem;
+}
+
+/* ||||||||||||||||||************** MEDIA ***************||||||||||||| */
+
+@media (max-width: 1200px) {
+   .main {
+      width: 100%;
+   }
+   #game__background {
+      left: -12rem;
+      height: 50rem;
+   }
+}
+
+@media (max-width: 1100px) {
+   .game__controls {
+      display: flex;
+      align-items: flex-end;
+   }
+   .game__start {
+      display: flex;
+      align-items: flex-end;
+   }
+   .game__initial-btns {
+      height: 17rem;
+      padding: 3rem 0;
+   }
+   .control__btns {
+      height: 16rem;
+      padding: 0rem 5rem;
+   }
+
+   .game__container {
+      transform: translate(-50%) scale(1.4);
+      top: 7rem;
+   }
+    #game__background {
+      display: none;
+   }
+}
+
+@media (max-width: 900px) and (max-height: 640px ) {
+   html {
+      font-size: 55%;
+   }
+   .control__top-btn,
+   .control__left-btn,
+   .control__right-btn,
+   .control__down-btn {
+      width: 4rem;
+      height: 4rem;
+   }
+
+   .control__btns {
+      width: 22rem;
+   }
+}
+
+@media (max-width: 490px) {
+
+   html {
+      font-size: 55%;
+   }
+
+   .game__grass-left,
+   .game__grass-right {
+      display: none;
+   }
+
+  
+
+   .game__initial-btns {
+      height: 20rem;
+      padding: 5rem 0;
+   }
+
+   .game__start-btn,
+   .game__pause-btn {
+      width: 16rem;
+   }
+
+   .control__btns {
+      padding: 0;
+      height: 17rem;
+      width: 15rem;
+   }
+   .control__top-btn,
+   .control__left-btn,
+   .control__right-btn,
+   .control__down-btn{
+      font-size: 1rem;
+   }
+
+   .game__container {
+      transform: translate(-50%) scale(1.2);
+      top: 3rem
+   }
+}
+
+@media (max-width: 420px) {
+   .control__top-btn,
+   .control__left-btn,
+   .control__right-btn,
+   .control__down-btn {
+      width: 4rem;
+      height: 4rem;
+   }
+   .control__btns {
+      width: 12rem;
+   }
+
+   .game__container {
+      transform: translate(-50%) scale(1);
+      top: 2rem;
+   }
+}
+
+@media (max-width: 348px){
+   .game__container {
+      transform: translate(-50%) scale(0.9);
+   }
+}
